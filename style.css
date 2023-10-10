@@ -71,6 +71,9 @@ body{
     width: 100px;
 }
 
+a{
+    color: #abdbe3;
+}
 .caption {
     font-size: 0.7rem;
 }
