@@ -1,0 +1,11 @@
+-redo the theme
+-include links to projects on github 
+- descriptions include 
+            1. project goals,
+            2. group goals,
+            3. and personal contribution
+-images include
+            1. functionality
+            2. specific use cases
+
+- metrics? 
