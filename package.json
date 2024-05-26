@@ -1,0 +1,29 @@
+{
+  "name": "nwilkens4.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwilkens4/nwilkens4.github.io.git"
+  },
+  "author": "Noah C. Wilkens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nwilkens4/nwilkens4.github.io/issues"
+  },
+  "homepage": "https://github.com/nwilkens4/nwilkens4.github.io#readme",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.0",
+    "vite": "^5.2.11"
+  },
+  "dependencies": {
+    "three": "^0.164.1"
+  }
+}
