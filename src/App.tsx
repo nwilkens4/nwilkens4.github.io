@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, Component, type ReactNode, type ErrorInfo } from "react"
 import { MeshGradient } from "@paper-design/shaders-react"
 import Hero from "./components/sections/Hero"
 import SectionNav from "./components/sections/SectionNav"
@@ -8,20 +8,39 @@ import Cars from "./components/sections/Cars"
 import Music from "./components/sections/Music"
 import Travel from "./components/sections/Travel"
 
+class ShaderErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false }
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.warn("Shader background failed to load:", error, info)
+  }
+  render() {
+    if (this.state.hasError) return null
+    return this.props.children
+  }
+}
+
 export default function App() {
   const [speed] = useState(0.6)
 
   return (
     <div className="relative min-h-screen bg-black text-[var(--color-garden-text)]">
       {/* Shader Background - fixed behind everything */}
-      <div className="fixed inset-0 z-0">
-        <MeshGradient
-          className="w-full h-full"
-          colors={["#000000", "#1a1a2e", "#16213e", "#0a0a0a"]}
-          speed={speed}
-          style={{ background: "#000000" }}
-        />
-      </div>
+      <ShaderErrorBoundary>
+        <div className="fixed inset-0 z-0">
+          <MeshGradient
+            className="w-full h-full"
+            colors={["#000000", "#1a1a2e", "#16213e", "#0a0a0a"]}
+            speed={speed}
+            style={{ background: "#000000" }}
+          />
+        </div>
+      </ShaderErrorBoundary>
 
       {/* Subtle lighting overlays */}
       <div className="fixed inset-0 z-[1] pointer-events-none">
