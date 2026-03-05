@@ -1,4 +1,5 @@
 import { Disc3 } from "lucide-react"
+import { GooeyText } from "@/components/ui/gooey-text-morphing"
 
 export default function Hero() {
   return (
@@ -15,12 +16,18 @@ export default function Hero() {
         <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl bg-[var(--color-garden-accent)]/10 -z-10 scale-125" />
       </div>
 
+      {/* Name - Gooey morphing text */}
+      <GooeyText
+        texts={["Noah Wilkens", "create.", "explore.", "evolve."]}
+        morphTime={1.5}
+        cooldownTime={0.5}
+        className="h-[80px] md:h-[100px] w-full max-w-2xl mb-4"
+        textClassName="font-bold"
+      />
+
       {/* Mantra */}
-      <h1 className="font-[var(--font-display)] text-4xl md:text-6xl text-center text-white/90 mb-4" style={{ fontFamily: "'Caveat', cursive" }}>
-        Noah Wilkens
-      </h1>
       <p className="text-lg md:text-xl text-white/40 text-center max-w-md font-light tracking-wide">
-        create. explore. evolve.
+        digital garden
       </p>
 
       {/* Scroll indicator */}
