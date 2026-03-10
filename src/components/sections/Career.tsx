@@ -25,12 +25,12 @@ export default function Career() {
     <section id="career" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <h2
-          className="text-3xl md:text-4xl text-white/90 mb-2"
+          className="text-3xl md:text-4xl text-white/90 mb-2 text-center"
           style={{ fontFamily: "'Caveat', cursive" }}
         >
           Career
         </h2>
-        <p className="text-white/30 mb-12 text-sm">experience & education</p>
+        <p className="text-white/30 mb-12 text-sm text-center">experience & education</p>
 
         <div className="space-y-6">
           {/* Experience */}

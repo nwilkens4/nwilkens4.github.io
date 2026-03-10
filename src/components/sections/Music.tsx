@@ -11,12 +11,12 @@ export default function Music() {
     <section id="music" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <h2
-          className="text-3xl md:text-4xl text-white/90 mb-2"
+          className="text-3xl md:text-4xl text-white/90 mb-2 text-center"
           style={{ fontFamily: "'Caveat', cursive" }}
         >
           Music
         </h2>
-        <p className="text-white/30 mb-12 text-sm">vinyls, concerts & vibes</p>
+        <p className="text-white/30 mb-12 text-sm text-center">vinyls, concerts & vibes</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {interests.map(({ label, description, icon: Icon }) => (
