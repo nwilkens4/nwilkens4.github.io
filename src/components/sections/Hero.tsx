@@ -18,7 +18,7 @@ export default function Hero() {
 
       {/* Name - Gooey morphing text */}
       <GooeyText
-        texts={["Noah Wilkens", "create.", "explore.", "evolve."]}
+        texts={["Noah Wilkens", "Solutions Engineer", "Car Enthusiast", "Music Buff"]}
         morphTime={1.5}
         cooldownTime={0.5}
         className="h-[80px] md:h-[100px] w-full max-w-2xl mb-4"
