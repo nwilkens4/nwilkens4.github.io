@@ -7,8 +7,8 @@
   --color-garden-card: rgba(255, 255, 255, 0.05);
   --color-garden-card-hover: rgba(255, 255, 255, 0.1);
   --color-garden-border: rgba(255, 255, 255, 0.1);
-  --color-garden-accent: #a78bfa;
-  --color-garden-accent-dim: rgba(167, 139, 250, 0.2);
+  --color-garden-accent: #a0a0a0;
+  --color-garden-accent-dim: rgba(160, 160, 160, 0.2);
   --color-garden-text: #f5f5f5;
   --color-garden-muted: rgba(255, 255, 255, 0.5);
 }
