@@ -9,12 +9,12 @@ export default function Travel() {
     <section id="travel" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <h2
-          className="text-3xl md:text-4xl text-white/90 mb-2"
+          className="text-3xl md:text-4xl text-white/90 mb-2 text-center"
           style={{ fontFamily: "'Caveat', cursive" }}
         >
           Travel
         </h2>
-        <p className="text-white/30 mb-12 text-sm">places & adventures</p>
+        <p className="text-white/30 mb-12 text-sm text-center">places & adventures</p>
 
         {/* Interactive map placeholder */}
         <div className="mb-8 p-12 rounded-2xl border border-dashed border-white/[0.08] bg-white/[0.02] text-center">

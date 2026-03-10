@@ -11,12 +11,12 @@ export default function Cars() {
     <section id="cars" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <h2
-          className="text-3xl md:text-4xl text-white/90 mb-2"
+          className="text-3xl md:text-4xl text-white/90 mb-2 text-center"
           style={{ fontFamily: "'Caveat', cursive" }}
         >
           Cars
         </h2>
-        <p className="text-white/30 mb-12 text-sm">shows, engines & chassis</p>
+        <p className="text-white/30 mb-12 text-sm text-center">shows, engines & chassis</p>
 
         {/* Quick stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
