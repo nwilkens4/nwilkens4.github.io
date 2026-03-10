@@ -28,7 +28,7 @@ export default function LaunchScreen({ onEnter }: LaunchScreenProps) {
           onClick={onEnter}
           className="text-white text-2xl tracking-[0.2em] uppercase font-extralight transition-all duration-700 hover:tracking-[0.3em] animate-pulse"
         >
-          Enter
+          Digital Farm
         </button>
       </div>
     </div>
