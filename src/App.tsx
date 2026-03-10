@@ -35,7 +35,7 @@ export default function App() {
         <div className="fixed inset-0 z-0">
           <MeshGradient
             className="w-full h-full"
-            colors={["#000000", "#1a1a2e", "#16213e", "#0a0a0a"]}
+            colors={["#000000", "#1a1a1a", "#2a2a2a", "#0a0a0a"]}
             speed={speed}
             style={{ background: "#000000" }}
           />
@@ -47,14 +47,14 @@ export default function App() {
         <div
           className="absolute top-1/4 left-1/3 w-64 h-64 rounded-full blur-3xl animate-pulse"
           style={{
-            background: "rgba(167, 139, 250, 0.03)",
+            background: "rgba(160, 160, 160, 0.03)",
             animationDuration: `${5 / speed}s`,
           }}
         />
         <div
           className="absolute bottom-1/3 right-1/4 w-48 h-48 rounded-full blur-2xl animate-pulse"
           style={{
-            background: "rgba(139, 92, 246, 0.02)",
+            background: "rgba(160, 160, 160, 0.02)",
             animationDuration: `${3 / speed}s`,
             animationDelay: "1s",
           }}
