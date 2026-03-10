@@ -14,8 +14,8 @@ export default function SectionNav() {
   }
 
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-20 w-full flex justify-center px-6">
+      <div className="w-full max-w-5xl">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {sections.map(({ id, label, icon: Icon, description }) => (
             <button
