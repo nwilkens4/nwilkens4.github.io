@@ -43,8 +43,8 @@ const socials = [
 
 export default function SocialMedia() {
   return (
-    <section id="social" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="social" className="py-24 w-full flex justify-center px-6">
+      <div className="w-full max-w-4xl">
         <h2
           className="text-3xl md:text-4xl text-white/90 mb-2 text-center"
           style={{ fontFamily: "'Caveat', cursive" }}
