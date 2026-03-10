@@ -28,7 +28,7 @@ export default function Travel() {
           {places.map((place, i) => (
             <div
               key={i}
-              className="group p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm cursor-pointer transition-all duration-300 hover:border-[var(--color-garden-accent)]/20 hover:bg-white/[0.06]"
+              className="group p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm cursor-pointer transition-all duration-300 hover:border-[var(--color-garden-accent)]/20 hover:bg-white/[0.06] text-center"
             >
               <div className="w-full aspect-video rounded-lg bg-white/[0.03] border border-white/[0.05] mb-4 flex items-center justify-center">
                 <ImageIcon className="w-6 h-6 text-white/10" strokeWidth={1} />

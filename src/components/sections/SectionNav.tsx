@@ -21,7 +21,7 @@ export default function SectionNav() {
             <button
               key={id}
               onClick={() => scrollTo(id)}
-              className="group cursor-pointer p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-300 hover:border-[var(--color-garden-accent)]/20 hover:bg-white/[0.06] text-left"
+              className="group cursor-pointer p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-300 hover:border-[var(--color-garden-accent)]/20 hover:bg-white/[0.06] text-center flex flex-col items-center"
             >
               <Icon
                 className="w-6 h-6 text-white/30 mb-3 transition-colors duration-300 group-hover:text-[var(--color-garden-accent)]"

@@ -35,7 +35,7 @@ export default function Career() {
         <div className="space-y-6">
           {/* Experience */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center justify-center gap-2 mb-4">
               <Building2 className="w-4 h-4 text-[var(--color-garden-accent)]" strokeWidth={1.5} />
               <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider">Experience</h3>
             </div>
@@ -45,12 +45,12 @@ export default function Career() {
                   key={i}
                   className="p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <div className="text-center mb-2">
                     <h4 className="text-white/80 font-semibold">{item.title}</h4>
                     <span className="text-xs text-white/30">{item.period}</span>
                   </div>
-                  <p className="text-sm text-[var(--color-garden-accent)]/70 mb-2">{item.org}</p>
-                  <p className="text-sm text-white/40">{item.description}</p>
+                  <p className="text-sm text-[var(--color-garden-accent)]/70 mb-2 text-center">{item.org}</p>
+                  <p className="text-sm text-white/40 text-center">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -58,7 +58,7 @@ export default function Career() {
 
           {/* Education */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center justify-center gap-2 mb-4">
               <GraduationCap className="w-4 h-4 text-[var(--color-garden-accent)]" strokeWidth={1.5} />
               <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider">Education</h3>
             </div>
@@ -68,12 +68,12 @@ export default function Career() {
                   key={i}
                   className="p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <div className="text-center mb-2">
                     <h4 className="text-white/80 font-semibold">{item.title}</h4>
                     <span className="text-xs text-white/30">{item.period}</span>
                   </div>
-                  <p className="text-sm text-[var(--color-garden-accent)]/70 mb-2">{item.org}</p>
-                  <p className="text-sm text-white/40">{item.description}</p>
+                  <p className="text-sm text-[var(--color-garden-accent)]/70 mb-2 text-center">{item.org}</p>
+                  <p className="text-sm text-white/40 text-center">{item.description}</p>
                 </div>
               ))}
             </div>

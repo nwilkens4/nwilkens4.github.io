@@ -22,7 +22,7 @@ export default function Music() {
           {interests.map(({ label, description, icon: Icon }) => (
             <div
               key={label}
-              className="group p-8 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-300 hover:border-[var(--color-garden-accent)]/20 hover:bg-white/[0.06] cursor-pointer"
+              className="group p-8 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-300 hover:border-[var(--color-garden-accent)]/20 hover:bg-white/[0.06] cursor-pointer flex flex-col items-center text-center"
             >
               <Icon
                 className="w-8 h-8 text-white/20 mb-4 transition-colors duration-300 group-hover:text-[var(--color-garden-accent)]"
