@@ -7,6 +7,7 @@ import Career from "./components/sections/Career"
 import Cars from "./components/sections/Cars"
 import Music from "./components/sections/Music"
 import Travel from "./components/sections/Travel"
+import LaunchScreen from "./components/LaunchScreen"
 
 class ShaderErrorBoundary extends Component<
   { children: ReactNode },
@@ -27,9 +28,26 @@ class ShaderErrorBoundary extends Component<
 
 export default function App() {
   const [speed] = useState(0.6)
+  const [entered, setEntered] = useState(false)
+  const [launchVisible, setLaunchVisible] = useState(true)
+
+  const handleEnter = () => {
+    setEntered(true)
+    setTimeout(() => setLaunchVisible(false), 800)
+  }
 
   return (
     <div className="relative w-full min-h-screen bg-black text-[var(--color-garden-text)]">
+      {/* Launch Screen */}
+      {launchVisible && (
+        <div
+          className="transition-opacity duration-[800ms] ease-in-out"
+          style={{ opacity: entered ? 0 : 1, pointerEvents: entered ? 'none' : 'auto' }}
+        >
+          <LaunchScreen onEnter={handleEnter} />
+        </div>
+      )}
+
       {/* Shader Background - fixed behind everything */}
       <ShaderErrorBoundary>
         <div className="fixed inset-0 z-0">
