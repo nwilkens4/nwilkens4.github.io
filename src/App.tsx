@@ -29,7 +29,7 @@ export default function App() {
   const [speed] = useState(0.6)
 
   return (
-    <div className="relative min-h-screen bg-black text-[var(--color-garden-text)]">
+    <div className="relative w-full min-h-screen bg-black text-[var(--color-garden-text)]">
       {/* Shader Background - fixed behind everything */}
       <ShaderErrorBoundary>
         <div className="fixed inset-0 z-0">
