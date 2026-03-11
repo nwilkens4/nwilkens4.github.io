@@ -1,4 +1,5 @@
-import { useState, Component, type ReactNode, type ErrorInfo } from "react"
+import { useState, useRef, useEffect, Component, type ReactNode, type ErrorInfo } from "react"
+import { gsap } from "gsap"
 import { MeshGradient } from "@paper-design/shaders-react"
 import Hero from "./components/sections/Hero"
 import SectionNav from "./components/sections/SectionNav"
@@ -27,25 +28,48 @@ class ShaderErrorBoundary extends Component<
 }
 
 export default function App() {
-  const [speed] = useState(0.6)
-  const [entered, setEntered] = useState(false)
+  const speed = 0.6
   const [launchVisible, setLaunchVisible] = useState(true)
+  const curtainRef = useRef<HTMLDivElement>(null)
+  const mainContentRef = useRef<HTMLDivElement>(null)
+  const tlRef = useRef<gsap.core.Timeline | null>(null)
+  const isAnimating = useRef(false)
+
+  useEffect(() => {
+    if (curtainRef.current) {
+      gsap.set(curtainRef.current, { x: '-100%' })
+    }
+    return () => { tlRef.current?.kill() }
+  }, [])
 
   const handleEnter = () => {
-    setEntered(true)
-    setTimeout(() => setLaunchVisible(false), 800)
+    if (isAnimating.current) return
+    isAnimating.current = true
+    const curtain = curtainRef.current
+    const mainContent = mainContentRef.current
+    if (!curtain || !mainContent) return
+
+    tlRef.current?.kill()
+    tlRef.current = gsap.timeline()
+      .set(curtain, { x: '-100%', display: 'block' })
+      .to(curtain, { x: '0%', duration: 0.4, ease: 'power2.inOut' })
+      .call(() => setLaunchVisible(false))
+      .to(curtain, { x: '100%', duration: 0.4, ease: 'power2.inOut' }, '+=0.05')
+      .to(mainContent, { opacity: 1, duration: 0.3 }, '<0.1')
+      .set(curtain, { display: 'none' })
   }
 
   return (
     <div className="relative w-full min-h-screen bg-black text-[var(--color-garden-text)]">
+      {/* Curtain — slides in from left, exits right */}
+      <div
+        ref={curtainRef}
+        className="fixed inset-0 z-[60] bg-black hidden"
+      />
+
       {/* Launch Screen */}
       {launchVisible && (
-        <div
-          className="transition-opacity duration-[800ms] ease-in-out"
-          style={{ opacity: entered ? 0 : 1, pointerEvents: entered ? 'none' : 'auto' }}
-        >
-          <LaunchScreen onEnter={handleEnter} />
-        </div>
+        <LaunchScreen onEnter={handleEnter} />
       )}
 
       {/* Shader Background - fixed behind everything */}
@@ -79,22 +103,16 @@ export default function App() {
         />
       </div>
 
-      {/* Content - scrollable over the background */}
-      <div className="relative z-10 w-full">
-        {/* Hero / Landing */}
+      {/* Content - initially invisible, fades in after curtain exits */}
+      <div ref={mainContentRef} className="relative z-10 w-full opacity-0">
         <Hero />
-
-        {/* Section Navigation Grid */}
         <SectionNav />
-
-        {/* Individual Sections */}
         <SocialMedia />
         <Career />
         <Cars />
         <Music />
         <Travel />
 
-        {/* Footer */}
         <footer className="py-12 text-center">
           <p className="text-sm text-white/30 font-sans">
             &copy; {new Date().getFullYear()} Noah Wilkens
