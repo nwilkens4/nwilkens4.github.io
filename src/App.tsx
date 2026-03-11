@@ -1,4 +1,4 @@
-import { useState, useRef, Component, type ReactNode, type ErrorInfo } from "react"
+import { useState, useRef, useEffect, Component, type ReactNode, type ErrorInfo } from "react"
 import { gsap } from "gsap"
 import { MeshGradient } from "@paper-design/shaders-react"
 import Hero from "./components/sections/Hero"
@@ -28,17 +28,29 @@ class ShaderErrorBoundary extends Component<
 }
 
 export default function App() {
-  const [speed] = useState(0.6)
+  const speed = 0.6
   const [launchVisible, setLaunchVisible] = useState(true)
   const curtainRef = useRef<HTMLDivElement>(null)
   const mainContentRef = useRef<HTMLDivElement>(null)
+  const tlRef = useRef<gsap.core.Timeline | null>(null)
+  const isAnimating = useRef(false)
+
+  useEffect(() => {
+    if (curtainRef.current) {
+      gsap.set(curtainRef.current, { x: '-100%' })
+    }
+    return () => { tlRef.current?.kill() }
+  }, [])
 
   const handleEnter = () => {
+    if (isAnimating.current) return
+    isAnimating.current = true
     const curtain = curtainRef.current
     const mainContent = mainContentRef.current
     if (!curtain || !mainContent) return
 
-    gsap.timeline()
+    tlRef.current?.kill()
+    tlRef.current = gsap.timeline()
       .set(curtain, { x: '-100%', display: 'block' })
       .to(curtain, { x: '0%', duration: 0.4, ease: 'power2.inOut' })
       .call(() => setLaunchVisible(false))
@@ -53,7 +65,6 @@ export default function App() {
       <div
         ref={curtainRef}
         className="fixed inset-0 z-[60] bg-black hidden"
-        style={{ transform: 'translateX(-100%)' }}
       />
 
       {/* Launch Screen */}
