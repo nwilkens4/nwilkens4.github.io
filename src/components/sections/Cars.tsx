@@ -1,4 +1,5 @@
 import { Gauge, Wrench, Camera } from "lucide-react"
+import { ContainerScroll } from "@/components/ui/container-scroll-animation"
 
 const favorites = [
   { label: "Favorite Engine", value: "Edit me", icon: Gauge },
@@ -6,20 +7,24 @@ const favorites = [
   { label: "Car Shows", value: "Coming soon", icon: Camera },
 ]
 
+const titleComponent = (
+  <>
+    <h2
+      className="text-3xl md:text-4xl text-white/90 mb-2"
+      style={{ fontFamily: "'Caveat', cursive" }}
+    >
+      Cars
+    </h2>
+    <p className="text-white/30 mb-8 text-sm">shows, engines & chassis</p>
+  </>
+)
+
 export default function Cars() {
   return (
-    <section id="cars" className="py-24 w-full flex justify-center px-6">
-      <div className="w-full max-w-4xl">
-        <h2
-          className="text-3xl md:text-4xl text-white/90 mb-2 text-center"
-          style={{ fontFamily: "'Caveat', cursive" }}
-        >
-          Cars
-        </h2>
-        <p className="text-white/30 mb-12 text-sm text-center">shows, engines & chassis</p>
-
+    <ContainerScroll id="cars" titleComponent={titleComponent}>
+      <div className="space-y-6">
         {/* Quick stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {favorites.map(({ label, value, icon: Icon }) => (
             <div
               key={label}
@@ -39,6 +44,6 @@ export default function Cars() {
           <p className="text-xs text-white/15 mt-1">Add your car show photos here</p>
         </div>
       </div>
-    </section>
+    </ContainerScroll>
   )
 }

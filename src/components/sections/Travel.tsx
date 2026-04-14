@@ -1,23 +1,28 @@
 import { MapPin, ImageIcon } from "lucide-react"
+import { ContainerScroll } from "@/components/ui/container-scroll-animation"
 
 const places = [
   { name: "Add a place", description: "Where have you been?" },
 ]
 
+const titleComponent = (
+  <>
+    <h2
+      className="text-3xl md:text-4xl text-white/90 mb-2"
+      style={{ fontFamily: "'Caveat', cursive" }}
+    >
+      Travel
+    </h2>
+    <p className="text-white/30 mb-8 text-sm">places & adventures</p>
+  </>
+)
+
 export default function Travel() {
   return (
-    <section id="travel" className="py-24 w-full flex justify-center px-6">
-      <div className="w-full max-w-4xl">
-        <h2
-          className="text-3xl md:text-4xl text-white/90 mb-2 text-center"
-          style={{ fontFamily: "'Caveat', cursive" }}
-        >
-          Travel
-        </h2>
-        <p className="text-white/30 mb-12 text-sm text-center">places & adventures</p>
-
+    <ContainerScroll id="travel" titleComponent={titleComponent}>
+      <div className="space-y-6">
         {/* Interactive map placeholder */}
-        <div className="mb-8 p-12 rounded-2xl border border-dashed border-white/[0.08] bg-white/[0.02] text-center">
+        <div className="p-12 rounded-2xl border border-dashed border-white/[0.08] bg-white/[0.02] text-center">
           <MapPin className="w-10 h-10 text-white/15 mx-auto mb-4" strokeWidth={1} />
           <p className="text-white/30 mb-1">Interactive Map</p>
           <p className="text-xs text-white/15">Clickable map with photos coming soon</p>
@@ -39,6 +44,6 @@ export default function Travel() {
           ))}
         </div>
       </div>
-    </section>
+    </ContainerScroll>
   )
 }

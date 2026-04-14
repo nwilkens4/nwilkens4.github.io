@@ -1,4 +1,5 @@
 import { Github, Linkedin } from "lucide-react"
+import { ContainerScroll } from "@/components/ui/container-scroll-animation"
 
 const socials = [
   { name: "LinkedIn", url: "https://www.linkedin.com/in/noah-wilkens/", icon: Linkedin },
@@ -41,37 +42,39 @@ const socials = [
   },
 ]
 
+const titleComponent = (
+  <>
+    <h2
+      className="text-3xl md:text-4xl text-white/90 mb-2"
+      style={{ fontFamily: "'Caveat', cursive" }}
+    >
+      Connect
+    </h2>
+    <p className="text-white/30 mb-8 text-sm">find me everywhere</p>
+  </>
+)
+
 export default function SocialMedia() {
   return (
-    <section id="social" className="py-24 w-full flex justify-center px-6">
-      <div className="w-full max-w-4xl">
-        <h2
-          className="text-3xl md:text-4xl text-white/90 mb-2 text-center"
-          style={{ fontFamily: "'Caveat', cursive" }}
-        >
-          Connect
-        </h2>
-        <p className="text-white/30 mb-12 text-sm text-center">find me everywhere</p>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-          {socials.map(({ name, url, icon: Icon }) => (
-            <a
-              key={name}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group cursor-pointer flex flex-col items-center gap-3 p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-300 hover:border-[var(--color-garden-accent)]/20 hover:bg-white/[0.06]"
-            >
-              <div className="text-white/40 transition-colors duration-300 group-hover:text-[var(--color-garden-accent)]">
-                <Icon />
-              </div>
-              <span className="text-xs text-white/40 group-hover:text-white/60 transition-colors duration-300">
-                {name}
-              </span>
-            </a>
-          ))}
-        </div>
+    <ContainerScroll id="social" titleComponent={titleComponent}>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        {socials.map(({ name, url, icon: Icon }) => (
+          <a
+            key={name}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group cursor-pointer flex flex-col items-center gap-3 p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-300 hover:border-[var(--color-garden-accent)]/20 hover:bg-white/[0.06]"
+          >
+            <div className="text-white/40 transition-colors duration-300 group-hover:text-[var(--color-garden-accent)]">
+              <Icon />
+            </div>
+            <span className="text-xs text-white/40 group-hover:text-white/60 transition-colors duration-300">
+              {name}
+            </span>
+          </a>
+        ))}
       </div>
-    </section>
+    </ContainerScroll>
   )
 }
