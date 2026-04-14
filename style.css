@@ -79,9 +79,6 @@ a{
 }
 /* media queres */
 @media(max-width:780px){
-    .grid-2{
-        grid-template-columns: 1fr;
-    }
     .section-1{
         padding:0;
         padding-top: 5rem;
